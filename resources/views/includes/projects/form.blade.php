@@ -135,6 +135,27 @@
                 @enderror
             </div>
         </div>
+
+        {{-- Tendina categorie --}}
+        <div class="col-md-2">
+            <div class="mb-5">
+                <label for="category_id" class="form-label">Categorie</label>
+                <select class="form-select @error('category_id') is-invalid @enderror" name="category_id"
+                    id="category_id">
+                    <option value="" selected>Nessuna categoria</option>
+                    @foreach ($categories as $category)
+                        <option @if (old('category_id', $project->category_id) == $category->id) selected @endif value="{{ $category->id }}">
+                            {{ $category->label }}</option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+        </div>
     </div>
     {{-- STATO --}}
     <div class="row ">
@@ -153,7 +174,7 @@
 
 
 {{-- Bottone --}}
-<footer class="d-flex justify-content-between">
+<footer class="d-flex justify-content-between mb-3">
     <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">
         <i class="fa-solid fa-arrow-left"></i>
     </a>

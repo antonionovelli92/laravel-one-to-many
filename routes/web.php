@@ -3,6 +3,7 @@
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('/admin')->group
 
     // Rotte dei miei project
     Route::resource('projects', ProjectController::class);
+    // Rotte delle mie categorie
+    Route::resource('categories', CategoryController::class);
 
     // ! Rotta per i toggle
     Route::patch('/projects/{project}/toggle', [ProjectController::class, 'toggle'])->name('projects.toggle');

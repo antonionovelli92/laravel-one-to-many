@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
@@ -15,9 +17,14 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
+        // $max = Category::count();
+        $category_ids = Category::select('id')->pluck('id')->toArray();
+        $category_ids[] = null;
         for ($i = 0; $i < 5; $i++) {
             $project = new Project();
 
+
+            $project->category_id = Arr::random($category_ids);
             $project->title = $faker->text(20);
             $project->author = $faker->name();
             $project->description = $faker->sentence();

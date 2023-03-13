@@ -1,0 +1,24 @@
+body{
+   background-image: url("/public/images/bg1.jpeg");
+   background-size: cover;
+background-repeat: no-repeat;
+}
+
+
+// effetto hover per l'iimmagine in anteprima
+#img-preview{
+    &:hover{
+      transform: scale(4.1);
+      cursor: pointer;
+      box-shadow: 0 0 10px red;
+    }
+}
+
+th{
+   font-size: 11px;
+   
+  
+}
+ td {
+    font-size: 10px;
+ }

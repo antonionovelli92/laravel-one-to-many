@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Aggiungi progetto')
+@section('title', 'Aggiungi categoria')
 
 @section('content')
     <header>
@@ -8,5 +8,5 @@
     </header>
 
     {{-- FORM --}}
-    @include('includes.projects.form')
+    @include('includes.categories.form')
 @endsection

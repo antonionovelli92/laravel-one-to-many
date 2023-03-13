@@ -19,7 +19,7 @@ return new class extends Migration
             // // Definisco la relazione
             // $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
 
-            $table->foreignId('category_id')->after('id')->nullable()->onDelete('set null')->constrained();
+            $table->foreignId('category_id')->after('id')->nullable()->constrained()->onDelete('set null');
         });
     }
 
